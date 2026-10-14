@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Sachit Projects — DIY robotics, Arduino, ESP32, RC cars, wiring guides and code.">
+  <title>Sachit Projects | Build • Code • Create</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Sachit Projects home">
+      <span class="brand-mark">S<span>+</span></span>
+      <span><strong>SACHIT</strong><small>PROJECTS / ROBOTICS LAB</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#projects">Projects</a><a href="#code-lab">Code Lab</a><a href="#about">About</a>
+    </nav>
+    <a class="top-cta" href="#projects"><span class="status-dot"></span> Explore builds <span aria-hidden="true">↗</span></a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> DIY ROBOTICS • OPEN PROJECTS</div>
+        <h1>Dream it.<br><span>Build it.</span><br>Code it.</h1>
+        <p class="hero-intro">Your launchpad for RC cars, Arduino experiments, ESP32 builds and the next big idea. Follow the steps, study the code, and make it your own.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore projects <span>↗</span></a>
+          <a class="button button-ghost" href="#code-lab"><span class="play-icon">▶</span> Open Code Lab</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong id="projectCount">06</strong><span>STARTER BUILDS</span></div>
+          <i></i><div><strong>100%</strong><span>MAKER ENERGY</span></div><i></i><div><strong>DIY</strong><span>YOUR WAY</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Illustrated futuristic robotics car">
+        <div class="visual-grid"></div>
+        <div class="scan-ring ring-a"></div><div class="scan-ring ring-b"></div>
+        <div class="hud hud-top"><span>SYS / ROBOTICS</span><b>ONLINE</b></div>
+        <div class="hud hud-left"><small>PLATFORM</small><strong>ESP32 / UNO</strong><small>MODE: DIY</small></div>
+        <svg class="robot-car" viewBox="0 0 620 340" role="img" aria-label="Neon illustration of a four-wheel robot car">
+          <defs>
+            <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38e8ff"/><stop offset=".5" stop-color="#1688c9"/><stop offset="1" stop-color="#123b78"/></linearGradient>
+            <linearGradient id="wheelGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#324d70"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+            <filter id="glow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <ellipse cx="305" cy="285" rx="235" ry="26" fill="#00cfff" opacity=".18" filter="url(#glow)"/>
+          <g stroke="#49eaff" stroke-width="3" filter="url(#glow)">
+            <path d="M135 185 L135 240 L205 270 L205 217" fill="#0c2038"/>
+            <path d="M435 185 L435 240 L505 210 L505 158" fill="#0c2038"/>
+          </g>
+          <g>
+            <path d="M132 198 Q115 191 118 221 L130 257 Q135 271 155 263 L184 249 L176 210 Z" fill="url(#wheelGrad)" stroke="#38e8ff" stroke-width="3"/>
+            <path d="M440 216 L440 258 Q445 275 465 266 L493 250 L493 211 L470 199 Z" fill="url(#wheelGrad)" stroke="#38e8ff" stroke-width="3"/>
+            <path d="M210 246 L210 282 Q218 300 240 291 L267 275 L267 242 Z" fill="url(#wheelGrad)" stroke="#38e8ff" stroke-width="3"/>
+            <path d="M402 240 L402 279 Q410 295 432 284 L458 269 L458 230 Z" fill="url(#wheelGrad)" stroke="#38e8ff" stroke-width="3"/>
+            <path d="M160 171 L235 120 L412 132 L478 177 L395 220 L215 215 Z" fill="url(#bodyGrad)" stroke="#9af7ff" stroke-width="3"/>
+            <path d="M235 120 L275 78 L391 89 L412 132 Z" fill="#153e70" stroke="#56eaff" stroke-width="3"/>
+            <path d="M275 78 L391 89 L365 112 L252 103 Z" fill="#0a1a31" stroke="#2bdcff" stroke-width="2"/>
+            <path d="M160 171 L215 215 L395 220 L478 177 L412 132 L235 120 Z" fill="#0b2c51" opacity=".45"/>
+            <path d="M180 176 L234 144 L393 151 L446 179 L390 202 L226 199 Z" fill="#07111f" stroke="#26dff8" stroke-width="2"/>
+            <path d="M218 175 L258 153 L369 158 L405 178 L370 191 L252 188 Z" fill="#153a5c" stroke="#42e9ff" stroke-width="2"/>
+            <rect x="286" y="158" width="54" height="27" rx="4" fill="#07111f" stroke="#70f5ff" stroke-width="2"/>
+            <text x="313" y="176" text-anchor="middle" font-size="11" fill="#8af8ff" font-family="monospace">ESP32</text>
+            <path d="M155 176 L188 185 L193 194 L160 187 Z" fill="#ff4e91" filter="url(#glow)"/>
+            <path d="M442 177 L474 166 L469 180 L440 191 Z" fill="#ff4e91" filter="url(#glow)"/>
+            <circle cx="308" cy="105" r="8" fill="#a6fbff" filter="url(#glow)"/>
+            <path d="M308 96 L308 72 L322 62" stroke="#a6fbff" stroke-width="3" fill="none"/>
+            <circle cx="323" cy="61" r="5" fill="#a6fbff" filter="url(#glow)"/>
+          </g>
+          <g stroke="#35dfff" opacity=".8"><path d="M65 270 H130 M475 285 H555 M92 291 H160 M460 305 H522" stroke-dasharray="5 7"/></g>
+        </svg>
+        <div class="hud hud-bottom"><span><i class="status-dot"></i> BUILD STATUS</span><strong>READY TO CREATE</strong></div>
+        <div class="visual-index">01 <span>/</span> ROBOTICS</div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Project topics">
+      <span>ARDUINO</span><b>✳</b><span>ESP32</span><b>✳</b><span>RC CARS</span><b>✳</b><span>ROBOTICS</span><b>✳</b><span>OPEN SOURCE CODE</span><b>✳</b><span>SENSORS</span>
+    </section>
+
+    <section class="projects-section section-wrap" id="projects">
+      <div class="section-heading">
+        <div><div class="eyebrow">THE PROJECT DATABASE / 001</div><h2>Choose your <span>next build.</span></h2><p>Browse a starter collection. Open any project for its parts, steps and code.</p></div>
+        <div class="project-total"><strong id="visibleCount">06</strong><span>PROJECTS FOUND</span></div>
+      </div>
+      <div class="project-controls">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search projects, boards, sensors..." autocomplete="off"><kbd>SEARCH</kbd></label>
+        <div class="filter-row" id="filterRow" aria-label="Filter projects">
+          <button class="filter-chip active" data-category="All">All builds <span>06</span></button>
+          <button class="filter-chip" data-category="RC Cars">RC cars</button>
+          <button class="filter-chip" data-category="Arduino">Arduino</button>
+          <button class="filter-chip" data-category="ESP32">ESP32</button>
+          <button class="filter-chip" data-category="Sensors">Sensors</button>
+        </div>
+      </div>
+      <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+      <div class="empty-state hidden" id="emptyState"><span>⌕</span><h3>No builds found</h3><p>Try another search term or category.</p><button class="button button-ghost" id="resetSearch">Reset filters</button></div>
+    </section>
+
+    <section class="code-section" id="code-lab">
+      <div class="code-intro">
+        <div class="eyebrow">THE CODE LAB / 002</div>
+        <h2>From idea<br>to <span>upload.</span></h2>
+        <p>Read a sample sketch, copy it, or download it as a file. Always check pin connections and board settings before uploading.</p>
+        <div class="code-feature"><span>01</span><div><strong>Readable code</strong><small>Syntax-highlighted style and clear comments.</small></div></div>
+        <div class="code-feature"><span>02</span><div><strong>One-click actions</strong><small>Copy code or save the sketch to your computer.</small></div></div>
+      </div>
+      <div class="code-window">
+        <div class="window-top"><div class="window-dots"><i></i><i></i><i></i></div><span id="codeFilename">blink_led.ino</span><span class="language-tag">ARDUINO C++</span></div>
+        <div class="code-toolbar"><span><i class="status-dot"></i> SAMPLE SKETCH</span><div><button id="copyCode" class="mini-button">▢ Copy</button><button id="downloadCode" class="mini-button mini-primary">↓ Download</button></div></div>
+        <pre class="code-display"><code id="codeDisplay"></code></pre>
+        <div class="code-foot"><span>● READY TO COPY</span><span>UTF-8 <b>•</b> LF</span></div>
+      </div>
+    </section>
+
+    <section class="bottom-cta section-wrap" id="about">
+      <div class="cta-icon">⌘</div><div><div class="eyebrow">YOUR WORKSHOP STARTS HERE</div><h2>Make something <span>awesome.</span></h2><p>Build it, test it, improve it — and share your version with the maker community.</p></div>
+      <a class="button button-primary" href="#projects">Find a project <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="brand footer-brand" href="#"><span class="brand-mark">S<span>+</span></span><span><strong>SACHIT</strong><small>PROJECTS / ROBOTICS LAB</small></span></a><span>BUILT FOR CURIOUS MINDS <b>✳</b> © <span id="year"></span> SACHIT PROJECTS</span><a href="#top" id="backTop">BACK TO TOP ↑</a></footer>
+
+  <div class="modal-backdrop hidden" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="project-modal">
+      <button class="modal-close" id="closeModal" aria-label="Close project">×</button>
+      <div class="modal-eyebrow" id="modalCategory">PROJECT / 001</div><h2 id="modalTitle">Project title</h2><p id="modalDescription"></p>
+      <div class="modal-columns"><div><h3>Parts you'll need</h3><ul id="modalParts"></ul></div><div><h3>Build steps</h3><ol id="modalSteps"></ol></div></div>
+      <div class="modal-warning"><strong>⚠ Build safely:</strong> Check your exact board, driver and motor voltage. Disconnect power before changing wiring. Motor drivers and battery connections vary by design.</div>
+      <div class="modal-actions"><button class="button button-primary" id="openProjectCode">Open code in Code Lab ↗</button><button class="button button-ghost" id="modalDownload">Download code ↓</button></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="projects.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
