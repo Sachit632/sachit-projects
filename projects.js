@@ -88,10 +88,30 @@ void loop() {
     description: "Blink the built-in LED to test your Arduino board and programming setup.",
     parts: ["Arduino Uno or compatible board", "USB data cable"],
     steps: ["Connect the Arduino using a USB data cable.", "Select the correct board and port in Arduino IDE.", "Upload the sketch and observe the built-in LED."],
-    filename: "blink_led.ino",
-    code: `void setup() {
+   
+diagram: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 230">
+  <rect width="500" height="230" rx="14" fill="#101827"/>
+  <text x="250" y="30" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold">Arduino LED Blink</text>
+  <rect x="145" y="52" width="210" height="145" rx="12" fill="#087f65" stroke="#58e0b2" stroke-width="2"/>
+  <rect x="175" y="72" width="150" height="95" rx="6" fill="#164e45" stroke="#9ae6cf"/>
+  <text x="250" y="115" text-anchor="middle" fill="#ffffff" font-size="18">Arduino UNO</text>
+  <text x="250" y="139" text-anchor="middle" fill="#c8f7e8" font-size="12">Built-in LED</text>
+  <circle cx="310" cy="181" r="7" fill="#ffd166" stroke="#fff1b5" stroke-width="2"/>
+  <text x="325" y="185" fill="#ffffff" font-size="11">LED (pin 13)</text>
+  <text x="250" y="218" text-anchor="middle" fill="#cbd5e1" font-size="12">No external LED wiring required</text>
+</svg>`,
+filename: "blink_led.ino",
+code: `void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 }
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(500);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(500);
+}`
+
 
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH);
