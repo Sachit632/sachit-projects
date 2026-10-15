@@ -140,17 +140,88 @@ button,
     scroll-behavior: auto !important;
   }
 }
-.project-card {
-  animation: testGlow 2s infinite alternate ease-in-out;
+/* Smooth transitions */
+.project-card,
+.card-art .art-icon,
+.button,
+.mini-button,
+.filter-chip {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    filter 0.3s ease;
 }
 
-@keyframes testGlow {
+/* Living neon glow */
+.project-card {
+  position: relative;
+  border: 1px solid #1c354c;
+  animation: cardGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes cardGlow {
   from {
-    box-shadow: 0 0 2px #38e8ff;
-    border-color: #1c354c;
+    box-shadow: 0 0 3px #38e8ff08;
   }
   to {
-    box-shadow: 0 0 25px #38e8ff;
-    border-color: #38e8ff;
+    box-shadow: 0 0 12px #38e8ff24;
   }
 }
+
+/* Lift and brighten cards on hover */
+.project-card:hover {
+  transform: translateY(-7px);
+  border-color: #38e8ff;
+  box-shadow:
+    0 0 12px #38e8ff55,
+    0 12px 32px #0006;
+}
+
+/* Zoom project illustrations */
+.project-card:hover .art-icon {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 22px var(--artcolor, #38e8ff));
+}
+
+/* Neon buttons */
+.button-primary:hover,
+.mini-primary:hover {
+  box-shadow: 0 0 22px #38e8ff70;
+  filter: brightness(1.12);
+}
+
+.button:active,
+.mini-button:active,
+.filter-chip:active {
+  transform: scale(0.97);
+}
+
+/* Pulsing status lights */
+.status-dot,
+.pulse {
+  animation: neonPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 5px var(--cyan);
+  }
+  50% {
+    opacity: 0.55;
+    box-shadow: 0 0 17px var(--cyan);
+  }
+}
+
+/* Accessibility: respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
