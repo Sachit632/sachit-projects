@@ -79,26 +79,28 @@ void loop() {
   // motor-driver stop / turn / forward logic here.
   delay(250);
 }`
+
   },
   {
- diagram: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" role="img" aria-label="Arduino Uno built-in LED wiring diagram">
-  <rect x="25" y="25" width="240" height="190" rx="14" fill="#174e43" stroke="#46d6a0" stroke-width="3"/>
-  <text x="145" y="55" font-size="18" fill="white" text-anchor="middle" font-weight="bold">Arduino Uno</text>
-  <rect x="90" y="82" width="110" height="48" rx="6" fill="#263238" stroke="#aab7b8" stroke-width="2"/>
-  <text x="145" y="111" font-size="14" fill="white" text-anchor="middle">ATmega</text>
-  <circle cx="220" cy="75" r="8" fill="#ffd166" stroke="white" stroke-width="2"/>
-  <text x="145" y="163" font-size="15" fill="white" text-anchor="middle">LED_BUILTIN</text>
-  <text x="145" y="185" font-size="14" fill="#b7f7df" text-anchor="middle">Usually pin 13</text>
-  <path d="M265 105 H345" stroke="#ffc857" stroke-width="4" fill="none"/>
-  <path d="M345 105 l-10 -7 v14 z" fill="#ffc857"/>
-  <rect x="355" y="65" width="215" height="85" rx="12" fill="#172033" stroke="#718096" stroke-width="2"/>
-  <circle cx="390" cy="107" r="15" fill="#ffc857" stroke="#fff0b3" stroke-width="2"/>
-  <path d="M382 99 L398 115 M398 99 L382 115" stroke="#7c4a03" stroke-width="2"/>
-  <text x="475" y="98" font-size="16" fill="white" text-anchor="middle">Built-in LED</text>
-  <text x="475" y="122" font-size="12" fill="#cbd5e1" text-anchor="middle">On the board</text>
-  <text x="300" y="190" font-size="14" fill="#64748b" text-anchor="middle">No external wiring required</text>
-</svg>`,
-filename: "blink_led.ino",
+    id: "arduino-blink", number: "03", title: "Arduino LED Blink",
+    category: "Arduino", tags: ["Arduino", "LED", "Beginner"], difficulty: "BEGINNER",
+    icon: "💡", artColor: "#ffc86b", glow: "#58401d",
+    description: "Blink the built-in LED to test your Arduino board and programming setup.",
+    parts: ["Arduino Uno or compatible board", "USB data cable"],
+    steps: ["Connect the Arduino using a USB data cable.", "Select the correct board and port in Arduino IDE.", "Upload the sketch and observe the built-in LED."],
+    filename: "blink_led.ino",
+    code: `void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(500);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(500);
+}`
+  },
+  {
     id: "esp32-web-led", number: "04", title: "ESP32 Wi-Fi LED Control",
     category: "ESP32", tags: ["ESP32", "Wi-Fi", "Web"], difficulty: "INTERMEDIATE",
     icon: "📡", artColor: "#bb91ff", glow: "#35235d",
