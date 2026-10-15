@@ -140,3 +140,17 @@ button,
     scroll-behavior: auto !important;
   }
 }
+.project-card {
+  animation: testGlow 2s infinite alternate ease-in-out;
+}
+
+@keyframes testGlow {
+  from {
+    box-shadow: 0 0 2px #38e8ff;
+    border-color: #1c354c;
+  }
+  to {
+    box-shadow: 0 0 25px #38e8ff;
+    border-color: #38e8ff;
+  }
+}
