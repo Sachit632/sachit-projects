@@ -14,71 +14,309 @@
 @media(max-width:720px){.topbar{height:70px;padding:0 5%}.nav-links{display:none;position:absolute;top:69px;left:0;right:0;background:#091827;border-bottom:1px solid var(--line);padding:18px 5%;flex-direction:column;gap:18px}.nav-links.open{display:flex}.top-cta{display:none}.mobile-menu{display:block}.hero{padding:50px 5% 45px;grid-template-columns:1fr;gap:38px}.hero-copy{max-width:600px}h1{font-size:64px;letter-spacing:-3px}.hero-visual{height:340px}.robot-car{top:55px}.hud-left{display:none}.hero-stats{margin-top:30px}.ticker{justify-content:flex-start;padding:0 5%;gap:20px;font-size:9px}.section-wrap{padding-left:5%;padding-right:5%}.projects-section{padding-top:65px;padding-bottom:65px}.section-heading{align-items:flex-start}.project-total{padding-top:10px}.section-heading h2{font-size:35px}.project-total strong{font-size:22px}.project-grid{gap:12px}.card-art{height:130px}.card-body{padding:13px}.project-card h3{font-size:15px}.project-card p{font-size:10px}.code-section{padding:60px 5%;grid-template-columns:1fr;gap:32px}.code-intro h2{font-size:46px}.code-intro>p{margin-bottom:20px}.bottom-cta{padding-top:48px;padding-bottom:48px;align-items:flex-start;flex-wrap:wrap;gap:16px}.bottom-cta>div:nth-child(2){min-width:calc(100% - 80px)}.bottom-cta .button{margin-left:74px}.footer{padding:22px 5%;flex-wrap:wrap}.footer>span{order:3;width:100%;line-height:1.8}.project-modal{padding:24px 19px}.modal-columns{gap:14px}.modal-columns ul,.modal-columns ol{font-size:11px}}
 @media(max-width:420px){.brand strong{font-size:12px}.brand small{font-size:7px}.brand-mark{width:34px;height:34px}.hero h1{font-size:56px}.hero-visual{height:290px}.robot-car{top:50px}.hero-stats{gap:9px}.hero-stats strong{font-size:17px}.hero-stats span{font-size:7px;letter-spacing:.5px}.project-grid{grid-template-columns:1fr}.card-art{height:165px}.project-card p{min-height:0}.filter-row{gap:6px}.filter-chip{padding:8px 9px}.section-heading{gap:10px}.section-heading h2{font-size:31px}.section-heading p{font-size:11px}.search-box kbd{display:none}.modal-columns{grid-template-columns:1fr}.code-display{padding:15px 12px;font-size:10px}.code-toolbar{padding:10px}.mini-button{padding:7px}.footer>span{font-size:8px}}
 
-/* ===== SACHIT PROJECTS: NEON GLOW ===== */
+/* ==========================================
+   SACHIT PROJECTS — FUTURISTIC JARVIS FX
+   Additive effects: preserves existing layout
+   ========================================== */
 
-.project-card {
-  animation: sachitNeonGlow 2s infinite alternate ease-in-out;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* 1. Smooth futuristic interactions */
+html {
+  scroll-behavior: smooth;
 }
 
-@keyframes sachitNeonGlow {
-  from {
-    box-shadow: 0 0 2px #38e8ff;
-    border-color: #1c354c;
-  }
-  to {
-    box-shadow: 0 0 25px #38e8ff;
-    border-color: #38e8ff;
-  }
+a,
+button,
+.project-card,
+.top-cta,
+.filter-chip,
+.mini-button,
+.project-modal {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* 2. Animated neon border on project cards */
+.project-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    115deg,
+    transparent 10%,
+    #38e8ff 35%,
+    #2789ff 50%,
+    #ff4e91 65%,
+    transparent 90%
+  );
+  background-size: 250% 250%;
+  animation: jarvisBorderFlow 5s linear infinite;
+  pointer-events: none;
+  opacity: 0.38;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes jarvisBorderFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 250% 50%; }
 }
 
 .project-card:hover {
-  transform: translateY(-7px);
-  border-color: #38e8ff;
-  box-shadow: 0 0 30px #38e8ff, 0 0 55px #2789ff;
+  transform: translateY(-8px) scale(1.015);
+  border-color: var(--cyan);
+  box-shadow:
+    0 0 18px #38e8ff55,
+    0 0 38px #2789ff30,
+    inset 0 0 18px #38e8ff0b;
+  z-index: 2;
 }
 
+/* 3. Scanning light across cards */
+.project-card .card-art {
+  position: relative;
+}
+
+.project-card .card-art::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -60%;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    #38e8ff30,
+    #38e8ff08,
+    transparent
+  );
+  transform: translateY(-100%);
+}
+
+.project-card:hover .card-art::after {
+  animation: jarvisScan 1s ease-in-out;
+}
+
+@keyframes jarvisScan {
+  from { transform: translateY(-20%); }
+  to { transform: translateY(480%); }
+}
+
+/* 4. Project icons react to hover */
 .project-card .art-icon {
-  transition: transform 0.35s ease, filter 0.35s ease;
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
 }
 
 .project-card:hover .art-icon {
-  transform: scale(1.12);
-  filter: drop-shadow(0 0 22px #38e8ff);
+  transform: scale(1.15) rotate(-3deg);
+  filter:
+    drop-shadow(0 0 12px var(--artcolor, var(--cyan)))
+    drop-shadow(0 0 25px #2789ff88);
+}
+
+/* 5. Futuristic buttons */
+.button,
+.top-cta,
+.filter-chip,
+.mini-button,
+.card-open,
+.modal-close {
+  position: relative;
 }
 
 .button-primary:hover,
 .mini-primary:hover {
-  box-shadow: 0 0 22px #38e8ff70;
-  filter: brightness(1.12);
+  box-shadow:
+    0 0 14px #38e8ff80,
+    0 0 32px #2789ff45;
+  filter: brightness(1.16);
+  transform: translateY(-2px);
 }
 
+.button-ghost:hover,
+.top-cta:hover,
+.filter-chip:hover,
+.mini-button:hover {
+  box-shadow: 0 0 16px #38e8ff28;
+}
+
+.card-open:hover,
+.modal-close:hover {
+  color: var(--cyan);
+  box-shadow: 0 0 14px #38e8ff35;
+}
+
+/* 6. Hero heading neon entrance */
+.hero-copy {
+  animation: jarvisEntrance 0.85s ease-out both;
+}
+
+.hero-visual {
+  animation:
+    jarvisEntrance 1s ease-out both,
+    jarvisPanelGlow 4s ease-in-out 1s infinite alternate;
+}
+
+@keyframes jarvisEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jarvisPanelGlow {
+  from {
+    border-color: #1d405a;
+    box-shadow: 0 0 5px #38e8ff08;
+  }
+  to {
+    border-color: #38e8ff77;
+    box-shadow:
+      0 0 18px #38e8ff20,
+      inset 0 0 25px #2789ff0a;
+  }
+}
+
+/* 7. Animated hero scan line */
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  left: 0;
+  right: 0;
+  top: -25%;
+  height: 2px;
+  background: #38e8ff99;
+  box-shadow:
+    0 0 10px #38e8ff,
+    0 0 25px #2789ff;
+  animation: jarvisHeroScan 7s linear infinite;
+}
+
+@keyframes jarvisHeroScan {
+  from { top: -2%; }
+  to { top: 102%; }
+}
+
+/* 8. Make the hero's existing rings glow */
+.scan-ring {
+  box-shadow:
+    0 0 14px #38e8ff12,
+    inset 0 0 14px #38e8ff08;
+}
+
+.ring-a {
+  animation: jarvisRingPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes jarvisRingPulse {
+  from {
+    border-color: #38e8ff20;
+    box-shadow: 0 0 5px #38e8ff08;
+  }
+  to {
+    border-color: #38e8ff70;
+    box-shadow: 0 0 24px #38e8ff24;
+  }
+}
+
+/* 9. Animated status indicators */
 .status-dot,
 .pulse {
-  animation: sachitStatusPulse 1.8s ease-in-out infinite;
+  animation: jarvisStatusPulse 1.5s ease-in-out infinite;
 }
 
-@keyframes sachitStatusPulse {
+@keyframes jarvisStatusPulse {
   0%, 100% {
     opacity: 1;
     box-shadow: 0 0 5px var(--cyan);
   }
   50% {
     opacity: 0.55;
-    box-shadow: 0 0 17px var(--cyan);
+    box-shadow: 0 0 18px var(--cyan);
   }
 }
 
+/* 10. Futuristic project modal */
+.project-modal {
+  animation: jarvisModalIn 0.35s ease-out both;
+  box-shadow:
+    0 0 25px #38e8ff16,
+    0 25px 100px #0008;
+}
+
+@keyframes jarvisModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-backdrop {
+  animation: jarvisBackdropIn 0.25s ease-out both;
+}
+
+@keyframes jarvisBackdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 11. Neon search field focus */
+.search-box:focus-within {
+  border-color: var(--cyan);
+  box-shadow:
+    0 0 0 1px #38e8ff25,
+    0 0 20px #38e8ff18;
+}
+
+/* 12. Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .project-card,
+  .project-card::before,
+  .project-card:hover .card-art::after,
+  .hero-copy,
+  .hero-visual,
+  .hero-visual::after,
+  .ring-a,
   .status-dot,
-  .pulse {
+  .pulse,
+  .project-modal,
+  .modal-backdrop {
     animation: none !important;
   }
 
-  *, *::before, *::after {
-    transition-duration: 0.01ms !important;
+  *,
+  *::before,
+  *::after {
     scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
-
