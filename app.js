@@ -76,17 +76,53 @@
     document.getElementById("code-lab").dataset.projectId = project.id;
   }
 
-  function openProject(project) {
-    selectedProject = project;
-    document.getElementById("modalCategory").textContent = `PROJECT / ${project.number} • ${project.category.toUpperCase()}`;
-    document.getElementById("modalTitle").textContent = project.title;
-    document.getElementById("modalDescription").textContent = project.description;
-    document.getElementById("modalParts").innerHTML = project.parts.map(item => `<li>${escapeHTML(item)}</li>`).join("");
-    document.getElementById("modalSteps").innerHTML = project.steps.map(item => `<li>${escapeHTML(item)}</li>`).join("");
-    modal.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
-    document.getElementById("closeModal").focus();
+  
+function openProject(project) {
+  selectedProject = project;
+
+  document.getElementById("modalCategory").textContent =
+    `PROJECT / ${project.number} • ${project.category.toUpperCase()}`;
+  document.getElementById("modalTitle").textContent = project.title;
+  document.getElementById("modalDescription").textContent = project.description;
+
+  document.getElementById("modalParts").innerHTML =
+    project.parts.map(item => `<li>${escapeHTML(item)}</li>`).join("");
+  document.getElementById("modalSteps").innerHTML =
+    project.steps.map(item => `<li>${escapeHTML(item)}</li>`).join("");
+
+  let diagramArea = document.getElementById("modalDiagram");
+
+  if (!diagramArea) {
+    diagramArea = document.createElement("section");
+    diagramArea.id = "modalDiagram";
+    diagramArea.style.margin = "24px 0";
+    diagramArea.innerHTML =
+      '<h3>Circuit / Wiring Diagram</h3><div id="modalDiagramContent"></div>';
+
+    document.getElementById("modalDescription")
+      .insertAdjacentElement("afterend", diagramArea);
   }
+
+  const diagramContent = document.getElementById("modalDiagramContent");
+  diagramContent.replaceChildren();
+
+  if (project.diagram) {
+    diagramContent.innerHTML = project.diagram;
+    diagramContent.querySelectorAll("svg").forEach(svg => {
+      svg.style.maxWidth = "100%";
+      svg.style.height = "auto";
+      svg.style.display = "block";
+    });
+  } else {
+    diagramContent.textContent =
+      "The wiring diagram for this project is coming soon.";
+  }
+
+  modal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+  document.getElementById("closeModal").focus();
+}
+
 
   function closeModal() {
     modal.classList.add("hidden");
